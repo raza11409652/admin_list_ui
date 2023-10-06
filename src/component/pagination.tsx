@@ -14,7 +14,9 @@ export const Pagination: React.FC<Props> = ({ total, current, onPaginationClick 
   return <>
 
     <div className="pagination-wrapper">
+      <button disabled={current === 1} onClick={() => onPaginationClick(current - 1)}>Prev</button>
       {pages.map(a => <button key={a} className={current === a ? "active" : "not-active"} onClick={() => onPaginationClick(a)}>{a}</button>)}
+      <button disabled={current === total} onClick={() => onPaginationClick(current + 1)}>Next</button>
     </div>
   </>;
 };
